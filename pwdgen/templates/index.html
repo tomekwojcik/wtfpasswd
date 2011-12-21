@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>WHAT THE FUCK SHOULD I USE FOR PASSWORD?</title>
+        <style type="text/css">
+            * {
+                line-height: 1;
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            a {
+                color: #3f3f3f;
+                text-decoration: none;
+            }
+            
+            a:hover {
+                text-decoration: underline;
+            }
+            
+            body {
+                background: #e6e6e6;
+                color: #3f3f3f;
+                font-family: tahoma, arial;
+                font-size: 14px;
+            }
+            
+            p {
+                margin: 1em 0px;
+            }
+            
+            #fucking-page {
+                margin: 0px auto;
+                width: 700px;
+            }
+            
+            #fucking-password,
+            #fucking-tagline,
+            #fucking-error {
+                font-size: 36px;
+                margin: 1.5em 0px;
+                text-align: center;
+            }
+            
+            #fucking-error {
+                color: #ea4c89;
+                font-weight: bold;
+            }
+            
+            #fucking-password {
+                color: #000000;
+                font-weight: bold;
+            }
+            
+            #fucking-tools span {
+                display: inline-block;
+                text-align: right;
+                width: 350px;
+            }
+            
+            #fucking-tools span:first-child {
+                text-align: left;
+            }
+            
+            #fucking-options {
+                display: none;
+                text-align: right;
+            }
+            
+            #fucking-options:target {
+                display: block;
+            }
+            
+            #fucking-length {
+                width: 24px;
+            }
+            
+            #fucking-footer {
+                bottom: 0px;
+                font-size: 12px;
+                left: 0px;
+                position: absolute;
+                text-align: center;
+                width: 100%;
+            }
+            
+            #fucking-footer a {
+                color: #000000;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="fucking-page">
+        {% if fucking_error == None %}
+            <p id="fucking-tagline">Use this for your fucking password:</p>
+            <p id="fucking-password">{{ fucking_password }}</p>
+            <p id="fucking-tools"><span><a href="{{ url_for('index') }}{{ fucking_query_string }}">I don't fucking like it</a></span><span><a href="#fucking-options">I want to see fucking options</a></span></p>
+        {% else %}
+            <p id="fucking-error">{{ fucking_error }}</p>
+        {% endif %}
+        
+        {% if show_fucking_options == False %}
+            <form id="fucking-options" action="{{ url_for('index') }}" method="get">
+        {% else %}
+            <form id="fucking-options" action="{{ url_for('index') }}" method="get" style="display: block;">
+        {% endif %}
+                <p class="fucking-checkboxes">Use fucking
+                {% if 'letters' in fucking_checkboxes %}
+                    <label for="fucking-letters"><input id="fucking-letters" type="checkbox" checked="checked" value="yes" name="letters" /> letters,</label>
+                {% else %}
+                    <label for="fucking-letters"><input id="fucking-letters" type="checkbox" value="yes" name="letters" /> letters,</label>
+                {% endif %}
+                {% if 'digits' in fucking_checkboxes %}
+                    <label for="fucking-digits"><input id="fucking-digits" type="checkbox" checked="checked" value="yes" name="digits" /> digits,</label>
+                {% else %}
+                    <label for="fucking-digits"><input id="fucking-digits" type="checkbox" value="yes" name="digits" /> digits,</label>
+                {% endif %}
+                {% if 'punctuation' in fucking_checkboxes %}
+                    <label for="fucking-punctuation"><input id="fucking-punctuation" type="checkbox" checked="checked" value="yes" name="punctuation" /> punctuation.</label>
+                {% else %}
+                    <label for="fucking-punctuation"><input id="fucking-punctuation" type="checkbox" value="yes" name="punctuation" /> punctuation.</label>
+                {% endif %}
+                </p>
+                <p class="fucking-length"><label for="fucking-length">Make it <input id="fucking-length" type="text" value="{{ fucking_length }}" name="length" /> fucking characters long.</label></p>
+                <p class="fucking-submit"><input type="submit" value="Fucking submit" /></p>
+            </form>
+        </div>
+        
+        <p id="fucking-footer"><a href="{{ url_for('index') }}">What The Fuck Should I Use For Password?</a> was brought to you by <a href="http://www.bthlabs.pl/">BTHLabs</a>. All fucking rights reserved.</p>
+    </body>
+</html>
+
