@@ -22,6 +22,10 @@ Serving via other WSGI servers
 -
 WSGI app is exported from `pwdgen.app:app`. If you installed the app in a virtual env be sure to make the environment aware of it.
 
+API
+-
+The app provides API. See docs [here](https://gist.github.com/1517544).
+
 Why?
 -
 For teh lulz.
