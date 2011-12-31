@@ -29,7 +29,7 @@ import random, string
 
 DEFAULT_CHARSET = string.ascii_letters + string.digits + string.punctuation
 
-def make_passwd(charset=None, length=8):
+def make_password(charset=None, length=8):
     """Fucking password generator.
     
     Returns a string containing `length` random chars from `charset` string.
@@ -46,7 +46,7 @@ def make_passwd(charset=None, length=8):
             
     try:
         assert len(charset) > 0
-        assert int(length) >= 0 and int(length) < len(charset)
+        assert int(length) > 0 and int(length) < len(charset)
     except:
         return None
             
@@ -120,7 +120,7 @@ def read_request_args():
     try:    
         charset = make_charset(template_vars['fucking_checkboxes'])
         assert charset != None
-        fucking_password = make_passwd(charset, template_vars['fucking_length'])
+        fucking_password = make_password(charset, template_vars['fucking_length'])
         assert fucking_password != None
     except AssertionError:
         template_vars['fucking_error'] = 'Options are fucking invalid'
